@@ -1,25 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FxBook</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>FxBook</title>
+  <script src="https://cdn.jsdelivr.net/npm/tweakpane@3.0.8/dist/tweakpane.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="style.css">
+
+   <!-- == Icons == -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" crossorigin="anonymous" />
+
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="container">
-                <div class="logo"></div>
-                <div class="btn"></div>
-            </div>
-        </nav>
-    </header>
-    <main>
-        <section>
-            
-        </section>
-    </main>
+<body style="pointer-events: none;">
+<!-- partial:index.partial.html -->
+<canvas style="pointer-events: all;"></canvas>
+<nav style="width: 100% !important; padding: 10px 0px; top: 0; position: fixed;">
+  <div class="nav-container" style="max-width: 1200px; margin: auto !important; display: flex; align-items: center; justify-content: space-between;">
+    <div class="logo"><div style="display: flex; align-items: center; justify-content: center; height: 80px; width: 80px; border-radius: 40px; background-color: #ffffff;"><img src="logo.png" width="60px" alt=""></div></div>
+    <div class="btn"><button style=" height: 42px; width: 140px; outline: none; border: 0; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; background-image: linear-gradient(#1b1e1f, #464646);">Get Started</button></div>
+  </div>
+</nav>
+<main style="width: 100% !important; padding: 160px 0px 0px; pointer-events: none;">
+  <div class="main-container" style="max-width: 1200px; margin: auto !important; pointer-events: none;">
+    <div class="large-text"><p style="color: #ffffff; font-size: 50px; font-weight: 600; max-width: 500px;">Lorem ipsum dolor sit amet consectetur </p></div>
+    <div class="small-text" style=" max-width: fit-content; padding: 0px 20px 0px; border-top: 2px solid #ffffff; border-bottom: 2px solid #ffffff;"><p style="color: #ffffff; font-size: 20px; font-weight: 500; max-width: 300px;">Lorem ipsum dolor sit ame</p></div>
+    <div style="display: flex; align-items: center; justify-content: center; height: 80px; width: fit-content; padding: 0px 15px 0px; font-size: 20px; color: #ffffff;">
+      <a href="#" style="font-size: 24px; color: #ffffff; margin: 0px 20px 0px 0px; pointer-events: none;" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="#" style="font-size: 24px; color: #ffffff; margin: 0px 20px 0px 0px; pointer-events: none;" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="#" style="font-size: 24px; color: #ffffff; margin: 0px 20px 0px 0px; pointer-events: none;" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="#" style="font-size: 24px; color: #ffffff; margin: 0px 20px 0px 0px; pointer-events: none;" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+</main>
+<div class="container">
+  <div class="row footer">
+    <div class="col"></div>
+  </div>
+</div>
+<!-- partial -->
+  <script type="module" src="script.js"></script>
+
 </body>
 </html>
