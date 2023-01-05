@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
      <!-- == Icons == -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" crossorigin="anonymous" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,13 +50,25 @@
             outline: none;
             transition: 0.4s;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 500;
             color: #323c48;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
         }
-        .accordion i{
+        .accordion span{
+            height: fit-content;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             font-size: 24px;
             color: #323c48;
             margin: 0px 10px 0px 0px;
+            transition: all ease 400ms;
+        }
+        .active-acc span svg{
             transition: all ease 400ms;
         }
         
@@ -64,7 +76,7 @@
         .active-acc, .accordion:hover {
             background-color: #ffffff;
         }
-        .active-acc i{
+        .active-acc span svg{
             transform: rotate(90deg);
         }
         /* Style the accordion panel. Note: hidden by default */
@@ -76,8 +88,6 @@
             transition: max-height 0.2s ease-out;
         }
         .panel span{
-            font-size: 18px !important;
-            font-weight: 500;
             margin: 32px 18px 10px;
         }
         .panel p{
@@ -106,7 +116,14 @@
             </div>
             <div class="content">
                 <div class="faq-content">
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> How Do I Start A Class?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> How Do I Start A Class?</button>
                     <div class="panel">
                         <br>
                         <span>UK Standard Tracked Delivery</span>
@@ -116,7 +133,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
     
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> Can I Earn From Class Making?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> Can I Earn From Class Making?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
@@ -124,7 +148,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
     
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> How Do I Create A Team?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> How Do I Create A Team?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
@@ -132,7 +163,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
 
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> Can I Earn From Class Making?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> Can I Earn From Class Making?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
@@ -140,7 +178,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
     
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> How Do I Create A Team?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> How Do I Create A Team?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
@@ -148,7 +193,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
 
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> Can I Earn From Class Making?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> Can I Earn From Class Making?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
@@ -156,7 +208,14 @@
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
                     </div>
     
-                    <button class="accordion"><i class="fa-solid fa-arrow-right-long"></i> How Do I Create A Team?</button>
+                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25px" height="25px" viewBox="0 0 25 25" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 24.539062 13.605469 C 25.152344 12.992188 25.152344 12 24.539062 11.390625 L 18.289062 5.140625 C 17.679688 4.53125 16.6875 4.53125 16.078125 5.140625 C 15.46875 5.753906 15.46875 6.742188 16.078125 7.355469 L 19.664062 10.9375 L 1.5625 10.9375 C 0.699219 10.9375 0 11.636719 0 12.5 C 0 13.363281 0.699219 14.0625 1.5625 14.0625 L 19.664062 14.0625 L 16.078125 17.648438 C 15.46875 18.257812 15.46875 19.25 16.078125 19.859375 C 16.6875 20.46875 17.679688 20.46875 18.289062 19.859375 L 24.539062 13.609375 Z M 24.539062 13.605469 "/>
+</g>
+</svg>
+
+</span> How Do I Create A Team?</button>
                     <div class="panel">
                         <br>
                         <p>Free on ALL orders over £50 or £3.95 otherwise. Your order should arrive within 7-10 days of ordering. Please note during promotional periods orders may take an additional 2 working days to arrive.</p>
