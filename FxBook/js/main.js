@@ -7,30 +7,32 @@ const message = document.getElementById('formRegisterMessage');
 let joinIcon=document.getElementById('add_success_load_icon');
 let SuccessText=document.getElementById('form-message-success');
 
-username.addEventListener("invalid", function(event){
-    event.preventDefault()
-  });
+	username.addEventListener("invalid", function(event){
+		event.preventDefault()
+	});
 
-  email.addEventListener("invalid", function(event){
-    event.preventDefault()
-  });
+	email.addEventListener("invalid", function(event){
+		event.preventDefault()
+	});
+	subject.addEventListener("invalid", function(event){
+		event.preventDefault()
+	});
+	message.addEventListener("invalid", function(event){
+		event.preventDefault()
+	});
 
-  notifyMe.addEventListener('click', () => {
-    validateInputs();
-  });
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    validateInputs();
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-    }).then((response) => {
-      if (response.status === 200 || response.status === 201) {
-      } else {
-      }
-    });
-    return false;
-  });
+	notifyMe.addEventListener('click', () => {
+		validateInputs();
+	  });
+	form.addEventListener("submit", e => {
+		e.preventDefault();
+		validateInputs();
+		fetch(form.action, {
+			method: "POST",
+			body: new FormData(form),
+		});
+		return false;
+	  });
 const setError = (element, message) => {
     const inputControl = element.parentElement;
     const errorDisplay = inputControl.querySelector('.error-message');
@@ -89,17 +91,17 @@ const validateInputs = () => {
 
 
     if (!usernameValue == '' && !emailValue == '' && !isValidEmail(emailValue) == false && !subjectValue == '' && !messageValue == '') {
-      setTimeout(function(){
-        joinIcon.style.display= "block";
-      },100); 
-      setTimeout(function(){
-        joinIcon.style.display= "none";
-      },2000); 
-	  setTimeout(function(){
-        SuccessText.style.display= "block";
-      },2000); 
-      setTimeout(function(){
-        location.reload();
-      },8000); 
+		setTimeout(function(){
+			joinIcon.style.display= "block";
+		},100); 
+		setTimeout(function(){
+			joinIcon.style.display= "none";
+		},2000); 
+		setTimeout(function(){
+			SuccessText.style.display= "block";
+		},2000); 
+		setTimeout(function(){
+			location.reload();
+		},8000); 
     }
 };

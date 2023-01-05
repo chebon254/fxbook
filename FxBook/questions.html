@@ -40,31 +40,31 @@
             </div>
             <div class="col-md-6">
               
-              <form class="mb-5" method="post" id="contactForm" action="https://sheetdb.io/api/v1/b4bmaqvyk1rby" name="contactForm">
+              <form class="mb-5" method="POST" id="contactForm" action="https://sheetdb.io/api/v1/kpxgnzsmsftr3" name="contactForm">
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" name="data[Name]" id="formRegisterName" placeholder="Your name">
+                    <input type="text" class="form-control" name="data[Name]" id="formRegisterName" placeholder="Your name" required>
                     <div id="name-message" class="error-message error">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" name="data[Email]" id="formRegisterEmail" placeholder="Email">
+                    <input type="text" class="form-control" name="data[Email]" id="formRegisterEmail" placeholder="Email" required>
                     <div id="email-message" class="error-message error">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <input type="text" class="form-control" name="data[Subject]" id="formRegisterSubject" placeholder="Subject">
+                    <input type="text" class="form-control" name="data[Subject]" id="formRegisterSubject" placeholder="Subject" required>
                     <div id="subject-message" class="error-message error">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-md-12 form-group">
-                    <textarea class="form-control" name="data[Message]" id="formRegisterMessage" cols="30" rows="7" placeholder="Write your message"></textarea>
+                    <textarea class="form-control" name="data[Message]" id="formRegisterMessage" cols="30" rows="7" required placeholder="Write your message"></textarea>
                     <div id="message-message" class="error-message error">
                     </div>
                   </div>
@@ -78,7 +78,7 @@
               </form>
 
               <div id="form-message-success">
-                Your message was sent, thank you!
+                Your message was sent, thank you! Incoming response to your email in less than 24hours
               </div>
             </div>
           </div>
