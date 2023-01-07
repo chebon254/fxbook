@@ -8,32 +8,58 @@
 
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <style>
+      *{
+        -webkit-transition: all 400ms ease-in-out;
+        -moz-transition: all 400ms ease-in-out;
+        -ms-transition: all 400ms ease-in-out;
+        -o-transition: all 400ms ease-in-out;
+        transition: all 400ms ease-in-out;
+      }
         .mySlides {
-            display:none
+            display:none;
         }
         body{
             padding: 20px;
+            background-color: #1d1d1d;
+        }
+        .side-button{
+          position: fixed;
+        }
+        .side-button:nth-child(1){
+          left: 5% !important;
+          top: 50% !important;
+        }
+        .side-button:nth-child(2){
+          right: 10% !important;
+          top: 50% !important;
+        }
+        .w3-button{
+          color: #999999;
+          border-radius: 4px;
+        }
+        .w3-red{
+          color: #fff !important;
+          background-color: #999999 !important;
         }
     </style>
 </head>
 <body>
       <div class="w3-content" style="max-width:800px; min-height: 500px;">
-        <img class="mySlides" src="img/1.png" style="width:100%">
-        <img class="mySlides" src="img/2.png" style="width:100%">
-        <img class="mySlides" src="img/3.png" style="width:100%">
-        <img class="mySlides" src="img/4.png" style="width:100%">
-        <img class="mySlides" src="img/5.png" style="width:100%">
-        <img class="mySlides" src="img/6.png" style="width:100%">
-        <img class="mySlides" src="img/7.png" style="width:100%">
-        <img class="mySlides" src="img/8.png" style="width:100%">
-        <img class="mySlides" src="img/9.png" style="width:100%">
-        <img class="mySlides" src="img/10.png" style="width:100%">
+        <img class="mySlides" src="img/1.jpg" style="width:100%">
+        <img class="mySlides" src="img/2.jpg" style="width:100%">
+        <img class="mySlides" src="img/3.jpg" style="width:100%">
+        <img class="mySlides" src="img/4.jpg" style="width:100%">
+        <img class="mySlides" src="img/5.jpg" style="width:100%">
+        <img class="mySlides" src="img/6.jpg" style="width:100%">
+        <img class="mySlides" src="img/7.jpg" style="width:100%">
+        <img class="mySlides" src="img/8.jpg" style="width:100%">
+        <img class="mySlides" src="img/9.jpg" style="width:100%">
       </div>
       
       <div class="w3-center">
         <div class="w3-section">
-          <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-          <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+          <button class="w3-button side-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
+          <button class="w3-button side-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
         </div>
         <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
         <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
@@ -44,7 +70,6 @@
         <button class="w3-button demo" onclick="currentDiv(7)">7</button> 
         <button class="w3-button demo" onclick="currentDiv(8)">8</button> 
         <button class="w3-button demo" onclick="currentDiv(9)">9</button> 
-        <button class="w3-button demo" onclick="currentDiv(10)">10</button> 
       </div>
       <script>
         var slideIndex = 1;

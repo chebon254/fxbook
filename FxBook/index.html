@@ -43,7 +43,7 @@
 </nav>
 <main style="width: 100% !important; padding: 160px 0px 0px; pointer-events: none;">
   <div class="main-container" style="max-width: 1200px; margin: auto !important; pointer-events: none;">
-    <div class="large-text"><p style="color: #ffffff; font-size: 50px; font-weight: 600; max-width: 500px;">Investing Redefined</p></div>
+    <div class="large-text"><p style="color: #ffffff; font-size: 60px; font-weight: 600; max-width: 500px;">Investing Redefined</p></div>
     <div style="display: flex; align-items: center; justify-content: center; height: 80px; width: fit-content; padding: 0px 15px 0px; font-size: 20px; color: #ffffff;">
       <div class="container">
         <div class="text"></div>
@@ -142,51 +142,51 @@ const phrases = [
   'buying and selling various financial instruments', 
   'such as stocks, bonds, currencies, and commodities.',
   'One of the main ways in which machine learning',
-   'is improving trading is by automating the',
-'decision-making process. With traditional',
-    'financial trading, humans would have to',
-     ' analyze vast amounts of data and make ',
-     'decisions based on their analysis. This process',
-       'is time-consuming and prone to error, as humans',
-       ' can make mistakes or overlook important data.',
-        ' Machine learning algorithms, on the other hand,',
-         ' can analyze data much faster and more accurately ',
-         ' than humans, leading to more efficient and profitable ',
-          'trading decisions.',
+  'is improving trading is by automating the',
+  'decision-making process. With traditional',
+  'financial trading, humans would have to',
+  ' analyze vast amounts of data and make ',
+  'decisions based on their analysis. This process',
+  'is time-consuming and prone to error, as humans',
+  ' can make mistakes or overlook important data.',
+  ' Machine learning algorithms, on the other hand,',
+  ' can analyze data much faster and more accurately ',
+  ' than humans, leading to more efficient and profitable ',
+  'trading decisions.',
   'Another way in which machine learning is being',
   ' used in financial trading is through the development',
-   ' of trading bots. These bots use machine learning',
-    'algorithms to analyze data and make trades',
-     ' on behalf of their users. They can operate 24/7 ',
-     ' and make trades in a fraction of a second, ',
-      'allowing them to take advantage of market ',
-      'fluctuations that would be impossible ',
-     ' for humans to react to in real-time.',
+  ' of trading bots. These bots use machine learning',
+  'algorithms to analyze data and make trades',
+  ' on behalf of their users. They can operate 24/7 ',
+  ' and make trades in a fraction of a second, ',
+  'allowing them to take advantage of market ',
+  'fluctuations that would be impossible ',
+  ' for humans to react to in real-time.',
   'In addition to automating the decision-making',
   ' process and developing trading bots, machine ',
   ' learning is also being used to identify ',
-   ' in financial data. By analyzing historical data,',
-     'machine learning algorithms can identify ',
-     'trends and patterns that can be used to make',
-     ' more informed trading decisions. This is ',
-     ' particularly useful for traders who are trying',
-       'to predict the future movements of financial markets.',
+  ' in financial data. By analyzing historical data,',
+  'machine learning algorithms can identify ',
+  'trends and patterns that can be used to make',
+  ' more informed trading decisions. This is ',
+  ' particularly useful for traders who are trying',
+  'to predict the future movements of financial markets.',
   'Overall, the use of machine learning in financial',
   ' trading is helping to make the process more efficient,', 
-   'accurate, and profitable. It is also helping',
-    'to level the playing field for small and',
-   ' medium-sized traders, who may not have the ',
-'resources or expertise to analyze large amounts',
-    'of data manually. As machine learning continues',
-     'to advance, it is likely to become an even',
-     ' dominant force in the financial trading industry.',
+  'accurate, and profitable. It is also helping',
+  'to level the playing field for small and',
+  ' medium-sized traders, who may not have the ',
+  'resources or expertise to analyze large amounts',
+  'of data manually. As machine learning continues',
+  'to advance, it is likely to become an even',
+  ' dominant force in the financial trading industry.',
 ];
 const el = document.querySelector('.text');
 const fx = new TextScramble(el);
 let counter = 0;
 const next = () => {
   fx.setText(phrases[counter]).then(() => {
-    setTimeout(next, 800);
+    setTimeout(next, 2000);
   });
   counter = (counter + 1) % phrases.length;
 };
