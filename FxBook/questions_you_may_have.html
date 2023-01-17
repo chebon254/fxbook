@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,43 +11,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
-        *{
+        * {
             font-family: 'Poppins', sans-serif !important;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        nav.sticky{
-            box-shadow: 2px 2px 12px #00000033;
+        body{
+            z-index: 0;
         }
-        nav{
-            background-color: #ffffff !important;
-        }
-        .container{
+
+        .container {
             margin: auto !important;
             width: 100%;
             max-width: 1200px;
             padding: 40px 15px;
         }
-        /* == FAQ PAGE == */
-        .faq-container {
+
+
+        nav.sticky {
+            box-shadow: 2px 2px 12px #00000033;
+        }
+
+        nav {
+            background-color: #ffffff !important;
+        }
+
+
+        .faqs-container {
+            overflow: hidden;
             padding: 160px 0px 40px;
+            z-index: 1;
         }
-        .faq-content{
-            padding: 40px 0px;
-            max-width: 1200px;
-            width: 100% !important;
-            flex-grow: 1;
+
+        .faq-singular {
+            position: relative;
+            border-bottom: 1px solid #ccc;
+            padding: 0 30px 0 20px;
         }
-        /* Style the buttons that are used to open and close the accordion panel */
-        .accordion {
+
+        .faq-singular:hover,
+        .faq-singular.active {
+            background: #ffffff;
+        }
+
+        .faq-question {
             background-color: #ffffff;
             cursor: pointer;
             padding: 20px 18px;
             width: 100%;
             text-align: left;
-            border: none;
-            border-bottom: 1px solid #eee;
             outline: none;
             transition: 0.4s;
             font-size: 18px;
@@ -56,7 +70,8 @@
             align-items: center;
             justify-content: flex-start;
         }
-        .accordion span{
+
+        .faq-question span {
             height: fit-content;
             width: fit-content;
             display: flex;
@@ -69,366 +84,592 @@
             padding: 6px;
             border-radius: 9px;
             background: linear-gradient(145deg, #e6e6e6, #ffffff);
-            box-shadow:  5px 5px 10px #ededed,
-                        -5px -5px 10px #ffffff;
+            box-shadow: 5px 5px 10px #ededed,
+                -5px -5px 10px #ffffff;
         }
-        .active-acc span{
+
+        .active span {
             border-radius: 7px;
             background: #ffffff;
             box-shadow: inset 5px 5px 11px #e8e8e8,
-                        inset -5px -5px 11px #ffffff;
+                inset -5px -5px 11px #ffffff;
         }
-        .active-acc span svg{
+
+        .active span svg {
             transition: all ease 400ms !important;
         }
-        
+
         /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-        .active-acc, .accordion:hover {
+        .active,
+        .accordion:hover {
             background-color: #ffffff;
             transition: all ease 400ms;
         }
+
         .accordion span:hover svg path,
-        .active-acc span svg path{
+        .active span svg path {
             fill: #6d5dfc !important;
             transition: all ease 400ms;
         }
-        /* Style the accordion panel. Note: hidden by default */
-        .panel {
-            padding: 0 32px;
-            background-color: white;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.2s ease-out;
+
+
+        .faq-singular .faq-question {
+            position: relative;
+            cursor: pointer;
+            margin: 0;
+            padding: 25px 25px 25px 0px;
+            font-weight: 500;
+            font-size: 19px;
         }
-        .panel span{
-            margin: 32px 18px 10px;
+
+        .faq-answer {
+            display: none;
+            padding-bottom: 20px;
         }
-        .panel p{
+
+        .text {
             font-size: 16px;
             font-weight: 400;
             color: #323c48;
             line-height: 32px;
             margin: 2px 20px;
         }
-        /* == || FAQ PAGE == */
     </style>
 </head>
+
 <body>
-    <nav class="header" style="width: 100% !important; padding: 10px 0px; top: 0; position: fixed;">
-        <div class="nav-container" style="max-width: 1200px; margin: auto !important; display: flex; align-items: center; justify-content: space-between;">
-          <div class="logo"><div style="display: flex; align-items: center; justify-content: center; height: 80px; width: 80px; border-radius: 40px; background-color: #ffffff;"><img src="logo.png" width="60px" alt=""></div></div>
-          <div class="btn">
-            <!-- <button style=" height: 42px; width: 140px; outline: none; border: 0; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; background-image: linear-gradient(#1b1e1f, #464646);">Get Started</button> -->
-          </div>
-        </div>
-      </nav>
-    <main>
-        <div class="container faq-container">
-            <div class="headline">
-                <h1>Frequently Asked Questions</h1>
-            </div>
-            <div class="content">
-                <div class="faq-content">
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> How is your firm regulated?  For example, are you a broker, an insurance agent,  a Registered Investment Advisor or something else?</button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using?                        </p><br>
-                        <br>
-                    </div>
-    
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> Do you adhere to a fiduciary standard at all times?  If not, why not? </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p><br>
-                    </div>
-    
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> Do you use a third‐party custodian, or does your firm take custody of clients’  assets?
-</button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
-                        </p>
-                        <br>
-                    </div>
-
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> What kinds of fees do you charge for your services?  Do you operate on a fee‐ only basis?  Do you receive commissions?   
-</button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-    
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> Aside from what I pay you, do you receive additional compensation that is not  visible to me?  For example, do you have soft dollar relationships with brokers?   Do you receive 12b‐1 “distribution” fees from mutual fund companies? </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
-                        </p>
-                        <br>
-                    </div>
-
-                    <button class="accordion"><span><?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-<g id="surface1">
-<path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-</g>
-</svg>
-</span> If you use mutual funds, what are the fees charged by the funds that you would  use for my account? 
-</button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
-                        </p>
-                        <br>
-                    </div>
-    
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span>  Can you estimate the total of the fees that I would pay each year, in both  percentage and dollar terms?  Please include your advisory fee as well as any  fund fees, brokerage commissions, custodial fees and other fees or expenses.
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
-                        </p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> Are your fees based on the size of my account?  If I deposit more money into my  account, would you charge me more?  If so, why?  How much more work does it  require to manage my account when I deposit more money? 
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> For a typical client, what is the average annual turnover, and can you estimate  the tax impact from that turnover?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> If you use mutual funds, what is the average annual turnover within the funds  that you purchase for clients?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> Do you bill clients in advance or in arrears?  If in advance, how far in advance? 
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> Do you prepare financial plans for your clients?  Can I see a sample plan?  How  do you align investment portfolios with clients’ plans?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> What asset classes would you include in my account?  How did you arrive at that  recommendation?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'                        </p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> What asset allocation would you recommend for my account.  How did you  arrive at that recommendation?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'
-                        </p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> What process do you use to select investments for client accounts?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> Does your research process include efforts to predict the future direction of the  economy, of the stock market, of interest rates or of individual stocks?  If so,  what has been your track record with these kinds of predictions? 
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> What is your approach to rebalancing?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> What is your approach to tax‐loss harvesting?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span>  If you use mutual funds, do you recommend actively‐managed or passively‐ managed funds?  If actively‐managed, how do you reconcile that with Standard  & Poor’s data showing that just a small fraction of actively‐managed domestic  stock funds do better than index funds in any given year?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
-                    <button class="accordion">
-                        <span>
-                            <?xml version="1.0" encoding="UTF-8"?>
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px" height="32px" viewBox="0 0 32 32" version="1.1">
-                                <g id="surface1">
-                                <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;" d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 "/>
-                                </g>
-                            </svg>
-                        </span> Are the funds that you would purchase for my account managed by the same  parent company that you work for?  If so, are you compensated more to  purchase those funds instead of funds managed by third parties?
-                    </button>
-                    <div class="panel">
-                        <br>
-                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here'</p>
-                        <br>
-                    </div>
+    <nav class="header" style="width: 100% !important; padding: 10px 0px; top: 0; position: fixed; z-index: 5;">
+        <div class="nav-container"
+            style="max-width: 1200px; margin: auto !important; display: flex; align-items: center; justify-content: space-between;">
+            <div class="logo">
+                <div
+                    style="display: flex; align-items: center; justify-content: center; height: 80px; width: 80px; border-radius: 40px; background-color: #ffffff;">
+                    <img src="logo.png" width="60px" alt="">
                 </div>
             </div>
+            <div class="btn">
+                <!-- <button style=" height: 42px; width: 140px; outline: none; border: 0; border-radius: 8px; color: #fff; font-weight: bold; cursor: pointer; background-image: linear-gradient(#1b1e1f, #464646);">Get Started</button> -->
+            </div>
         </div>
-    </main>
+    </nav>
+    <div class="faqs-container container " itemscope itemtype="https://schema.org/FAQPage">
+        <div class="headline">
+            <h1>Frequently Asked Questions</h1>
+        </div>
 
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> How is your firm regulated? For example, are you a broker, an insurance agent, a
+                Registered Investment Advisor or something else?</h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using? </p><br>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Do you adhere to a fiduciary standard at all times? If not, why not? </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p><br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Do you use a third‐party custodian, or does your firm take custody of clients’
+                assets?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What kinds of fees do you charge for your services? Do you operate on a fee‐ only
+                basis?
+                Do you receive commissions?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Aside from what I pay you, do you receive additional compensation that is not
+                visible to
+                me? For example, do you have soft dollar relationships with brokers? Do you receive 12b‐1
+                “distribution” fees from mutual fund companies? </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name"><span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> If you use mutual funds, what are the fees charged by the funds that you would use
+                for
+                my account?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Can you estimate the total of the fees that I would pay each year, in both
+                percentage
+                and dollar terms? Please include your advisory fee as well as any fund fees, brokerage
+                commissions, custodial fees and other fees or expenses.
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Are your fees based on the size of my account? If I deposit more money into my
+                account,
+                would you charge me more? If so, why? How much more work does it require to manage my
+                account
+                when I deposit more money?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> For a typical client, what is the average annual turnover, and can you estimate the
+                tax
+                impact from that turnover?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> If you use mutual funds, what is the average annual turnover within the funds that
+                you
+                purchase for clients?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Do you bill clients in advance or in arrears? If in advance, how far in advance?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Do you prepare financial plans for your clients? Can I see a sample plan? How do you
+                align investment portfolios with clients’ plans?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What asset classes would you include in my account? How did you arrive at that
+                recommendation?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here' </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What asset allocation would you recommend for my account. How did you arrive at that
+                recommendation?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'
+                </p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What process do you use to select investments for client accounts?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Does your research process include efforts to predict the future direction of the
+                economy, of the stock market, of interest rates or of individual stocks? If so, what has
+                been
+                your track record with these kinds of predictions?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What is your approach to rebalancing?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> What is your approach to tax‐loss harvesting?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text"> It is a long established fact that a reader will be distracted by the readable
+                    content
+                    of a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> If you use mutual funds, do you recommend actively‐managed or passively‐ managed
+                funds?
+                If actively‐managed, how do you reconcile that with Standard & Poor’s data showing that just
+                a
+                small fraction of actively‐managed domestic stock funds do better than index funds in any
+                given
+                year?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+        <div class="faq-singular" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <h2 class="faq-question" itemprop="name">
+                <span>
+                    <?xml version="1.0" encoding="UTF-8"?>
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32px"
+                        height="32px" viewBox="0 0 32 32" version="1.1">
+                        <g id="surface1">
+                            <path style=" stroke:none;fill-rule:nonzero;fill:rgb(0%,0%,0%);fill-opacity:1;"
+                                d="M 12.601562 23.800781 L 5.132812 16.332031 L 6.566406 14.898438 L 12.601562 20.933594 L 25.398438 8.132812 L 26.832031 9.566406 Z M 12.601562 23.800781 " />
+                        </g>
+                    </svg>
+                </span> Are the funds that you would purchase for my account managed by the same parent
+                company
+                that you work for? If so, are you compensated more to purchase those funds instead of funds
+                managed by third parties?
+            </h2>
+            <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <br>
+                <p itemprop="text">It is a long established fact that a reader will be distracted by the readable
+                    content of
+                    a
+                    page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                    more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                    here'</p>
+                <br>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script>
         /* == Sticky NavBar == */
         //Create A Responsive Menu Hide Show Side Menu
@@ -438,21 +679,22 @@
         this.scrollY > 20 ? header.classList.add("sticky") : header.classList.remove("sticky");
         }
         /* == Sticky NavBar == */
-        var acc = document.getElementsByClassName("accordion");
-        var i;
-
-        for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            this.classList.toggle("active-acc");
-            var panel = this.nextElementSibling;
-            if (panel.style.maxHeight) {
-            panel.style.maxHeight = null;
-            } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
-            }
+        $(document).ready(function () {
+            $(".faqs-container .faq-singular:first-child").addClass("active").children(".faq-answer").slideDown();//Remove this line if you dont want the first item to be opened automatically.
+            $(".faq-question").on("click", function () {
+                if ($(this).parent().hasClass("active")) {
+                    $(this).next().slideUp();
+                    $(this).parent().removeClass("active");
+                }
+                else {
+                    $(".faq-answer").slideUp();
+                    $(".faq-singular").removeClass("active");
+                    $(this).parent().addClass("active");
+                    $(this).next().slideDown();
+                }
+            });
         });
-        }
-
     </script>
 </body>
+
 </html>
