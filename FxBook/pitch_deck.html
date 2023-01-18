@@ -22,17 +22,6 @@
             padding: 20px;
             background-color: #1d1d1d;
         }
-        .side-button{
-          position: fixed;
-        }
-        .side-button:nth-child(1){
-          left: 5% !important;
-          top: 50% !important;
-        }
-        .side-button:nth-child(2){
-          right: 10% !important;
-          top: 50% !important;
-        }
         .w3-button{
           color: #999999;
           border-radius: 4px;
@@ -47,29 +36,15 @@
       <div class="w3-content" style="max-width:800px; min-height: 500px;">
         <img class="mySlides" src="img/1.jpg" style="width:100%">
         <img class="mySlides" src="img/2.jpg" style="width:100%">
-        <img class="mySlides" src="img/3.jpg" style="width:100%">
-        <img class="mySlides" src="img/4.jpg" style="width:100%">
-        <img class="mySlides" src="img/5.jpg" style="width:100%">
-        <img class="mySlides" src="img/6.jpg" style="width:100%">
-        <img class="mySlides" src="img/7.jpg" style="width:100%">
-        <img class="mySlides" src="img/8.jpg" style="width:100%">
-        <img class="mySlides" src="img/9.jpg" style="width:100%">
       </div>
       
-      <div class="w3-center">
-        <div class="w3-section">
+      <div class="w3-center" style="padding: 10px 0px !important;">
+        <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
+        <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
+        <div class="w3-section" style="padding: 10px 0px !important;">
           <button class="w3-button side-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
           <button class="w3-button side-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
         </div>
-        <button class="w3-button demo" onclick="currentDiv(1)">1</button> 
-        <button class="w3-button demo" onclick="currentDiv(2)">2</button> 
-        <button class="w3-button demo" onclick="currentDiv(3)">3</button> 
-        <button class="w3-button demo" onclick="currentDiv(4)">4</button> 
-        <button class="w3-button demo" onclick="currentDiv(5)">5</button> 
-        <button class="w3-button demo" onclick="currentDiv(6)">6</button> 
-        <button class="w3-button demo" onclick="currentDiv(7)">7</button> 
-        <button class="w3-button demo" onclick="currentDiv(8)">8</button> 
-        <button class="w3-button demo" onclick="currentDiv(9)">9</button> 
       </div>
       <script>
         var slideIndex = 1;

@@ -75,7 +75,7 @@ class Space {
 		this.scene = new THREE.Scene();
 		this.camera = new THREE.PerspectiveCamera(8);
 		//this.camera.position.set(0, -1.7, 5);
-		this.camera.position.set(4, -1.7, 20);
+		this.camera.position.set(1, 8, 20);
 		this.scene.background = new THREE.Color(0x000a0b);
 		this.control = new Control({ camera: this.camera, canvas: this.canvas });
 		//--
